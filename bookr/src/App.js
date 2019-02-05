@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Book from './components/Book';
+
 import SearchBar from './components/SearchBar/SearchBar';
 
 import Authenticate from "./components/Authenticate";
 import Login from './components/Login';
+import BookAboutView from './components/BookAboutView';
 
 class App extends Component {
 
@@ -16,6 +18,14 @@ class App extends Component {
       <h1>INTO THE<span> BOOK</span></h1>
       <LoginView />
       {/* <Book /> */}
+      <BookAboutView />
+
+      {/* <BookAboutView dummyData={this.state.filteredPosts.length > 0 ?
+        this.state.filteredPosts :
+        this.state.dummyData
+        
+      } */}
+      {/* /> */}
         
       </div>
     );
