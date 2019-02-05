@@ -1,6 +1,6 @@
 import React from "react";
 
-import App from "./../../App";
+import App from "../App";
 
 class Login extends React.Component {
   constructor(props) {
@@ -29,8 +29,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="postmain">
-        <h1>LOGIN PAGE</h1>
+      <div className="loginMain">
+        <h2>Welcome</h2>
 
         <div>
           <div className="comment">
@@ -53,7 +53,7 @@ class Login extends React.Component {
               <hr />
 
               <button onClick={this.logInOther}>
-                <strong>LogIn!</strong>
+                <strong>LOGIN</strong>
               </button>
             </form>
           </div>

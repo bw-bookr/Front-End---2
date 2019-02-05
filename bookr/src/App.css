@@ -45,3 +45,10 @@ span {
   font-weight: bold;
   font-family: Palatino;
 }
+
+button {
+  cursor: pointer;
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+}

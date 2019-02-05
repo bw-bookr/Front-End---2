@@ -1,6 +1,6 @@
 import React from 'react';
 
-const authenticate = App => Login =>
+const Authenticate = App => Login =>
   class extends React.Component {
     constructor() {
       super();
@@ -34,4 +34,4 @@ const authenticate = App => Login =>
       }
     };
   
-  export default authenticate;
+  export default Authenticate;

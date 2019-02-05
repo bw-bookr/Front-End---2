@@ -9,7 +9,7 @@ const SearchBars = props => {
         <div className="SearchBar">
 
 
-        <div className="logoImage">ITB</div>
+        <div className="logoImage">HOME</div>
 
         {/* <div className="instaSearchbar">B</div> */}
 
