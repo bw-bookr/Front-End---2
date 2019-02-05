@@ -61,13 +61,11 @@ class App extends Component {
         books={this.state.books} />
       )} />
 
-      {/* <Route
+      <Route
       path='/bookabout'
       render={props => (
         <BookAboutView /> 
-      )} /> */}
-
-      <BookAboutView />
+      )} />
 
       </div>
     );
