@@ -44,7 +44,9 @@ class App extends Component {
       <div className="App">
       <SearchBar />
       {/* <h1>BOOK<span>R</span></h1> */}
-      <LoginView />
+      {/* <LoginView /> */}
+
+      <div className="navLink">
 
       <NavLink exact to='/'>
       <h1>BOOK<span>R</span></h1>
@@ -53,6 +55,7 @@ class App extends Component {
       <NavLink to='/bookabout'>
       ABOUT BOOK
       </NavLink>
+      </div>
 
       <Route 
       exact path='/'
