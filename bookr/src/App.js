@@ -51,7 +51,7 @@ class App extends Component {
       </NavLink>
       
       <NavLink to='/bookabout'>
-      ADD A SMURF
+      ABOUT BOOK
       </NavLink>
 
       <Route 
