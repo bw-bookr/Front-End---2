@@ -31,8 +31,21 @@
    color: black; 
 }
 
-/* .modalPopUp {
-    display: inline-flex;
-    flex-direction: column;
-    background-color: grey;
-} */
+ b {
+     font-size: 20px;
+     font-family: Palatino;
+     color: red;
+     display: flex;
+     justify-content: center;
+ }
+
+ .modalButtons {
+    display: flex;
+    justify-content: center;
+    padding-bottom:20px;
+
+ }
+
+ /* .modal {
+     background-color: grey;
+ } */
