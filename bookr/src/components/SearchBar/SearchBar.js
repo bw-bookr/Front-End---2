@@ -9,7 +9,11 @@ const SearchBars = props => {
         <div className="SearchBar">
 
 
-        <div className="logoImage">HOME</div>
+        <div className="logoImage">
+        <a href="http://localhost:3001">
+        HOME
+        </a>
+        </div>
 
         {/* <div className="instaSearchbar">B</div> */}
 

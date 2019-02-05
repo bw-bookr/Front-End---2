@@ -13,7 +13,19 @@
     cursor: pointer;
     font-family: Palatino;
     padding-left: 20px;
+    text-decoration: none;
     
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: Palatino;
+    padding-left: 20px;
 }
 
 .instaSearchbar {
