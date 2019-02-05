@@ -11,11 +11,9 @@ const SearchBars = props => {
 
         <div className="logoImage">
         <a href="http://localhost:3001">
-        HOME
+        <i class="fas fa-home"></i>
         </a>
         </div>
-
-        {/* <div className="instaSearchbar">B</div> */}
 
         <div className="search"><input type="text" placeholder="Search" onKeyPress={props.searchPosts}/></div>
        

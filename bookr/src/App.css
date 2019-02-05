@@ -34,14 +34,14 @@
 
 h1 {
   font-size: 45px;
-  font-style: italic;
+  font-style: normal;
   font-weight: lighter;
   font-family: Palatino;
 }
 
 span {
   font-size: 45px;
-  font-style: normal;
+  font-style: italic;
   font-weight: bold;
   font-family: Palatino;
 }

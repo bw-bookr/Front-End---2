@@ -17,6 +17,11 @@ class ModalThing extends React.Component {
     }));
   }
 
+//   deleteItem = (e, index) => {
+//     e.preventDefault();
+//     this.props.deleteItem(index)
+// }
+
   render() {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
@@ -32,7 +37,9 @@ class ModalThing extends React.Component {
           </ModalBody>
           <ModalFooter>
               <div className="modalButtons">
-            <Button color="primary" onClick={this.toggle}>Delete Book</Button>{' '}
+            {/* <Button color="primary" onClick={e => this.deleteItem(e, index)} key={index}>
+            Delete Book</Button>{' '} */}
+            <Button color="primary" onClick={this.toggle}>Delete Book</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </div>
 

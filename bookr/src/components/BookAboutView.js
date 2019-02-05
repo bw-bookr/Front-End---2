@@ -5,6 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 import ModalThing from './Modal';
 
 import './Book.css';
+import CommentSection from './CommentSection/CommentSection';
 
 const BookAboutView = (props) => {
   return (
@@ -37,11 +38,11 @@ const BookAboutView = (props) => {
             </div>
             </CardText>
 
-          {/* <Button>Button</Button> */}
-
           <div className="modal">
           <ModalThing />
           </div>
+
+          {/* <CommentSection /> */}
 
         </CardBody>
       </Card>

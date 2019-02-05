@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
       <SearchBar />
-      <h1>INTO THE<span> BOOK</span></h1>
+      <h1>BOOK<span>R</span></h1>
       <LoginView />
       {/* <Book /> */}
       <BookAboutView />
@@ -26,7 +26,6 @@ class App extends Component {
         
       } */}
       {/* /> */}
-        
       </div>
     );
   }
