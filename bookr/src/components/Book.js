@@ -12,5 +12,10 @@ const Book = props => {
   );
 };
 
+Book.defaultProps = {
+    title: '',
+    author: ''
+  };
+
 
 export default Book;

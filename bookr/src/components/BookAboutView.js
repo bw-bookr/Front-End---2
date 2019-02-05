@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 import ModalThing from './Modal';
 
 import './Book.css';
-import CommentSection from './CommentSection/CommentSection';
+// import CommentSection from './CommentSection/CommentSection';
 
 const BookAboutView = (props) => {
   return (

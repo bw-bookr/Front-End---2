@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import Book from './components/Book';
+import Books from './components/Books';
 
 import SearchBar from './components/SearchBar/SearchBar';
 
@@ -10,6 +13,31 @@ import Login from './components/Login';
 import BookAboutView from './components/BookAboutView';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+    .get('http://localhost:8000/api/book-collection/')
+    .then(response => {
+      this.setState({ books: response.data })
+    })
+    .catch(err => console.log(err));
+  }
+
+  deleteBook = id => {
+    axios
+    .delete(`http://localhost:8000/api/book-collection/${id}`)
+    .then(response => {
+      this.setState({ books: response.data })
+    })
+    .catch(err => console.log(err))
+  }
+
 
   render() {
     return (
@@ -17,15 +45,16 @@ class App extends Component {
       <SearchBar />
       <h1>BOOK<span>R</span></h1>
       <LoginView />
-      {/* <Book /> */}
+
+      <Route 
+      exact path='/'
+      render={props => (
+        <Books 
+        books={this.state.books} />
+      )} />
+
       <BookAboutView />
 
-      {/* <BookAboutView dummyData={this.state.filteredPosts.length > 0 ?
-        this.state.filteredPosts :
-        this.state.dummyData
-        
-      } */}
-      {/* /> */}
       </div>
     );
   }
