@@ -51,25 +51,3 @@ const BookAboutView = (props) => {
 };
 
 export default BookAboutView;
-
-
-
-// import React from 'react';
-// import BookAbout from './BookAbout';
-
-
-// const BookAboutView = props => {
-
-//   return (
-
-//     <div>
-
-//       {props.dummyData.map (banana=> 
-//       <BookAbout key={banana.imageUrl} post={banana} />)}
-
-//     </div>
-
-//   );
-// };
-
-// export default BookAboutView;

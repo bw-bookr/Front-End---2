@@ -6,7 +6,6 @@ class Books extends Component {
   render() {
     return (
       <div className="Books">
-        <h1>Book List!</h1>
         <ul>
           {this.props.books.map(book => {
             return (

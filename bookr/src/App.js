@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import Book from './components/Book';
 import Books from './components/Books';
@@ -43,8 +43,16 @@ class App extends Component {
     return (
       <div className="App">
       <SearchBar />
-      <h1>BOOK<span>R</span></h1>
+      {/* <h1>BOOK<span>R</span></h1> */}
       <LoginView />
+
+      <NavLink exact to='/'>
+      <h1>BOOK<span>R</span></h1>
+      </NavLink>
+      
+      <NavLink to='/bookabout'>
+      ADD A SMURF
+      </NavLink>
 
       <Route 
       exact path='/'
@@ -52,6 +60,12 @@ class App extends Component {
         <Books 
         books={this.state.books} />
       )} />
+
+      {/* <Route
+      path='/bookabout'
+      render={props => (
+        <BookAboutView /> 
+      )} /> */}
 
       <BookAboutView />
 
