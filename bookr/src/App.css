@@ -30,3 +30,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+h1 {
+  font-size: 45px;
+  font-style: italic;
+  font-weight: lighter;
+  font-family: Palatino;
+}
+
+span {
+  font-size: 45px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Palatino;
+}
