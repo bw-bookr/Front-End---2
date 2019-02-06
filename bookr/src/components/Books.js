@@ -46,7 +46,8 @@ class Books extends Component {
                 title={book.title}
                 id={book.id}
                 author={book.author}
-                description={book.description}
+                short_description={book.short_description}
+                full_description={book.full_description}
                 key={book.id}
               />
 

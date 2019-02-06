@@ -69,7 +69,7 @@ class BookAboutView extends Component {
         
         <CardText>
           <div className="aboutBook">
-          <p>DESCRIPTION:: {this.state.book[0].full_description}</p>
+          <p>DESCRIPTION: {this.state.book[0].full_description}</p>
           </div>
           </CardText>
 

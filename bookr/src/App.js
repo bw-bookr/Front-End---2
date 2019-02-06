@@ -61,7 +61,7 @@ class App extends Component {
       </NavLink>
       
       <NavLink to={`/bookabout/${this.props.id}`}>
-      ABOUT BOOK
+      
       </NavLink>
       </div>
 
