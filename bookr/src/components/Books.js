@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 
 import Book from './Book';
 
-class BookList extends Component {
+class Books extends Component {
   render() {
     return (
-      <div className="booklist">
-        <h1>Book List!</h1>
+      <div className="Books">
         <ul>
           {this.props.books.map(book => {
             return (
@@ -31,4 +30,4 @@ Book.defaultProps = {
  books: [],
 };
 
-export default BookList;
+export default Books;

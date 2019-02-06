@@ -1,6 +1,7 @@
 import React from "react";
+import axios from 'axios';
 
-import App from "./../../App";
+import App from "../App";
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
-      loggedIn: null
+    //   loggedIn: null
     };
   }
 
@@ -18,19 +19,33 @@ class Login extends React.Component {
   };
 
   logInOther = event => {
-    const user = this.state.username;
+      event.preventDefault();
+      const baseUrl = ("http://localhost:8000/api/user-access/login");
+      console.log("line23");
+
+    // const user = this.state.username;
+
+    axios
+      .post(baseUrl, this.state)
+      .then(res => { 
+          console.log(res);
+          localStorage.setItem("jwt", res.data.token)
+    })
+    .catch(err => console.log(err));
+    //   localStorage.setItem("user", user);
 
     if (this.state.username) {
-      localStorage.setItem("user", user);
+        console.log(this.state);
+        return < App />
     } else {
-      return <App />;
+    //   return <App />;
     }
   };
 
   render() {
     return (
-      <div className="postmain">
-        <h1>LOGIN PAGE</h1>
+      <div className="loginMain">
+        <h2>Welcome</h2>
 
         <div>
           <div className="comment">
@@ -39,7 +54,7 @@ class Login extends React.Component {
                 type="text"
                 name="username"
                 placeholder="Username"
-                value={this.state.comment}
+                value={this.state.username}
                 onChange={this.changes}
               />
               <hr />
@@ -47,13 +62,13 @@ class Login extends React.Component {
                 type="text"
                 name="password"
                 placeholder="password"
-                value={this.state.comment}
+                value={this.state.password}
                 onChange={this.changes}
               />
               <hr />
 
               <button onClick={this.logInOther}>
-                <strong>LogIn!</strong>
+                <strong>LOGIN</strong>
               </button>
             </form>
           </div>

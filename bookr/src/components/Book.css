@@ -1,0 +1,51 @@
+.bookImage {
+    border: 3px solid black;
+    width: 500px;
+    height: auto;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 20px;
+
+}
+
+.bookTitle {
+  font-size: 40px;
+  font-weight: lighter;
+  font-family: Palatino;
+}
+
+.authorName {
+  font-size: 23px;
+  font-style: italic;
+  font-weight: lighter;
+  font-family: Palatino;
+}
+
+.aboutBook {
+  font-size: 15px;
+  font-weight: lighter;
+  font-family: Palatino;
+}
+
+.modal {
+   color: black; 
+}
+
+ b {
+     font-size: 20px;
+     font-family: Palatino;
+     color: red;
+     display: flex;
+     justify-content: center;
+ }
+
+ .modalButtons {
+    display: flex;
+    justify-content: center;
+    padding-bottom:20px;
+
+ }
+
+ /* .modal {
+     background-color: grey;
+ } */

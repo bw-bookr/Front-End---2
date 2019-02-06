@@ -6,11 +6,16 @@ const Book = props => {
     <div className="Book">
       <h3>TITLE: {props.title}</h3>
       <p>AUTHOR: {props.author}</p>
-      <p>DESCRIPTION: {props.description}</p>
+      <button>Click for Description</button>
 
     </div>
   );
 };
+
+Book.defaultProps = {
+    title: '',
+    author: ''
+  };
 
 
 export default Book;

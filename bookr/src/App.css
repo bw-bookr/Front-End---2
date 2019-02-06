@@ -30,3 +30,35 @@
     transform: rotate(360deg);
   }
 }
+
+
+h1 {
+  font-size: 55px;
+  font-style: normal;
+  font-weight: lighter;
+  font-family: Palatino;
+  color: black;
+  letter-spacing: 4px;
+}
+
+span {
+  font-size: 55px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: Palatino;
+  color: black;
+  letter-spacing: 4px;
+}
+
+button {
+  cursor: pointer;
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.navLink {
+  display: inline-flex;
+  flex-direction: column;
+  
+}

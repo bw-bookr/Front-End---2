@@ -1,6 +1,6 @@
 import React from 'react';
 
-const authenticate = App => Login =>
+const Authenticate = App => Login =>
   class extends React.Component {
     constructor() {
       super();
@@ -10,7 +10,9 @@ const authenticate = App => Login =>
     }
 
     componentDidMount() {
-        if (localStorage.getItem('user')) {
+
+        if (localStorage.getItem('jwt')) {
+            console.log(this.state.loggedIn);
           this.setState({
             loggedIn: true
           });
@@ -20,18 +22,25 @@ const authenticate = App => Login =>
           });
         }
       }
+
+      componentDidUpdate() {
+          console.log('anything');
+          return this.logInStuff();
+      }
   
       logInStuff = () => {
         if (this.state.loggedIn === false) {
           return <Login />;
         } else {
+            console.log('working');
           return <App />;
         }
       };
   
       render() {
+          console.log(this.state.loggedIn);
         return this.logInStuff();
       }
     };
   
-  export default authenticate;
+  export default Authenticate;
