@@ -39,7 +39,10 @@ class ModalThing extends React.Component {
               <div className="modalButtons">
             {/* <Button color="primary" onClick={e => this.deleteItem(e, index)} key={index}>
             Delete Book</Button>{' '} */}
-            <Button color="primary" onClick={this.toggle}>Delete Book</Button>
+            
+            <Button  
+            // onClick={() => this.props.history.delete(`/bookabout/${book.id}`)}
+            color="primary" onClick={this.toggle}>Delete Book</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </div>
 

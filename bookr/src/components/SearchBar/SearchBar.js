@@ -11,7 +11,7 @@ const SearchBars = props => {
 
         <div className="logoImage">
         <a href="http://localhost:3001">
-        <i class="fas fa-home"></i>
+        <i className="fas fa-home"></i>
         </a>
         </div>
 
@@ -21,10 +21,10 @@ const SearchBars = props => {
 
         <div className="icons">
 
-        <i class="far fa-compass"></i>
-        <i class="far fa-heart"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="far fa-user"></i></div>
+        <i className="far fa-compass"></i>
+        <i className="far fa-heart"></i>
+        <i className="fab fa-instagram"></i>
+        <i className="far fa-user"></i></div>
          
         </div>
 

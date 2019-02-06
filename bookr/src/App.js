@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+// import { Route, NavLink } from 'react-router-dom';
+import { NavLink, Route, withRouter} from 'react-router-dom';
 
 import Book from './components/Book';
 import Books from './components/Books';
@@ -16,17 +17,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
+      loggedIn: false
     };
   }
 
   componentDidMount() {
+    if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
     axios
-    .get('http://localhost:8000/api/book-collection/')
+    .get('https://bookr-app-backend.herokuapp.com/api/book-collection')
     .then(response => {
       this.setState({ books: response.data })
     })
     .catch(err => console.log(err));
+  }
+
+  updateBooks(params) {
+    this.setState({ books: params })
   }
 
   deleteBook = id => {
@@ -40,11 +47,12 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state.loggedIn);
     return (
       <div className="App">
       <SearchBar />
-      {/* <h1>BOOK<span>R</span></h1> */}
-      {/* <LoginView /> */}
+
+
 
       <div className="navLink">
 
@@ -52,29 +60,48 @@ class App extends Component {
       <h1>BOOK<span>R</span></h1>
       </NavLink>
       
-      <NavLink to='/bookabout'>
-      ABOUT BOOK
+      <NavLink to={`/bookabout/${this.props.id}`}>
+      
       </NavLink>
       </div>
 
-      <Route 
-      exact path='/'
+      
+      {/* <LoginView /> */}
+      {/* <h1>BOOK<span>R</span></h1> */}
+
+      <Route exact path='/' component={Login}/>
+
+      <Route path='/books' component={props => (
+        <Books 
+      books={this.state.books} /> )} />
+
+      {/* <Route 
+      exact path='/books'
       render={props => (
         <Books 
         books={this.state.books} />
-      )} />
+      )} /> */}
 
       <Route
-      path='/bookabout'
+      path={`/bookabout/:id`}
       render={props => (
-        <BookAboutView /> 
+       
+        <BookAboutView  {...props} /> 
       )} />
+
+      {/* <Route
+      path='/login'
+      render={props => (
+        <LoginView /> 
+      )} /> */} 
 
       </div>
     );
   }
 }
 
-const LoginView = Authenticate(Book)(Login);
+const LoginView = Authenticate(Books)(Login);
 
-export default App;
+export default withRouter(App);
+
+// export default App;

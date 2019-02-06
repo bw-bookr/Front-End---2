@@ -1,82 +1,202 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import Comment from './Comment';
-// import CommentInput from './CommentInput';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Comment from './Comment';
+import CommentInput from './CommentInput';
 
-// class CommentSection extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       comments: props.comments,
-//       comment: '',
-//     };
-//   }
+import axios from 'axios';
 
-//   componentDidMount() {
-//       const id = this.props.postId;
-//       if (localStorage.getItem(id)) {
-//           this.setState({
-//               commments: JSON.parse(localStorage.getItem(this.props.postId))
-//           });
-//       } else {
-//           this.setComments();
+  class CommentSection extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        comments: props.comments,
+        comment: '',
+      };
+    }
+
+    componentDidMount() {
+        if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
+        axios
+        .get('https://bookr-app-backend.herokuapp.com/api/book-collection/all_reviews')
+        .then(response => {
+          const id = this.props.match.params.id;
+          console.log(id);
+          const books = response.data;
+          console.log(books);
+          console.log(response.data);
+          const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
+          console.log(book)
+    
+          this.setState({ book }, () => {console.log(this.state);} )
+        })
+        .catch(err => console.log(err));
+      }
+    
+  
+    // componentDidMount() {
+    //     const id = this.props.postId;
+    //     if (localStorage.getItem(id)) {
+    //         this.setState({
+    //             commments: JSON.parse(localStorage.getItem(this.props.postId))
+    //         });
+    //     } else {
+    //         this.setComments();
+    //     }
+    // }
+  
+    componentWillUnmount() {
+        this.setComments();
+    }
+  
+    setComments = () => {
+        localStorage.setItem(
+            this.props.postId,
+            JSON.stringify(this.state.comments)
+        );
+    };
+  
+    commentsHandler = e => {
+        console.log("Working!")
+        this.setState({ comment: e.target.value }, () => console.log(this.state.comment));
+    };
+  
+    handleCommentSubmit = e => {
+        e.preventDefault();
+        console.log(this.state.comment)
+        const newComment = { text: this.state.comment, username: ''};
+        const comments = this.state.comments.slice();
+        comments.push(newComment);
+        console.log(newComment)
+        this.setState({ comments, comment: '' });
+        setTimeout(() => {
+            this.setComments();
+        }, 500);
+    };
+  
+  
+    render() {
+  
+      return (
+  
+        <div>
+          {this.state.comments.map((hi, yes) => 
+          <Comment key={yes} comment={hi} />)}
+  
+          <CommentInput 
+          comment={this.state.comment}
+          submitComment={this.handleCommentSubmit}
+          changeComment={this.commentHandler}
+          />
+        </div>
+  
+      );
+    }
+  }
+  
+  CommentSection.propTypes = {
+    comments: PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string, username: PropTypes.string, 
+          
+      })
+    )
+  };
+  
+  export default CommentSection;
+
+
+
+//   class CommentSection extends React.Component {
+//     constructor(props) {
+//       super(props);
+//       this.state = {
+//         comments: props.comments,
+//         comment: '',
+//       };
+//     }
+
+//     componentDidMount() {
+//         if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
+//         axios
+//         .get('https://bookr-app-backend.herokuapp.com/api/book-collection/all_reviews')
+//         .then(response => {
+//           const id = this.props.match.params.id;
+//           console.log(id);
+//           const books = response.data;
+//           console.log(books);
+//           console.log(response.data);
+//           const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
+//           console.log(book)
+    
+//           this.setState({ book }, () => {console.log(this.state);} )
+//         })
+//         .catch(err => console.log(err));
 //       }
-//   }
-
-//   componentWillUnmount() {
-//       this.setComments();
-//   }
-
-//   setComments = () => {
-//       localStorage.setItem(
-//           this.props.postId,
-//           JSON.stringify(this.state.comments)
+    
+  
+//     // componentDidMount() {
+//     //     const id = this.props.postId;
+//     //     if (localStorage.getItem(id)) {
+//     //         this.setState({
+//     //             commments: JSON.parse(localStorage.getItem(this.props.postId))
+//     //         });
+//     //     } else {
+//     //         this.setComments();
+//     //     }
+//     // }
+  
+//     componentWillUnmount() {
+//         this.setComments();
+//     }
+  
+//     setComments = () => {
+//         localStorage.setItem(
+//             this.props.postId,
+//             JSON.stringify(this.state.comments)
+//         );
+//     };
+  
+//     commentsHandler = e => {
+//         console.log("Working!")
+//         this.setState({ comment: e.target.value }, () => console.log(this.state.comment));
+//     };
+  
+//     handleCommentSubmit = e => {
+//         e.preventDefault();
+//         console.log(this.state.comment)
+//         const newComment = { text: this.state.comment, username: ''};
+//         const comments = this.state.comments.slice();
+//         comments.push(newComment);
+//         console.log(newComment)
+//         this.setState({ comments, comment: '' });
+//         setTimeout(() => {
+//             this.setComments();
+//         }, 500);
+//     };
+  
+  
+//     render() {
+  
+//       return (
+  
+//         <div>
+//           {this.state.comments.map((hi, yes) => 
+//           <Comment key={yes} comment={hi} />)}
+  
+//           <CommentInput 
+//           comment={this.state.comment}
+//           submitComment={this.handleCommentSubmit}
+//           changeComment={this.commentHandler}
+//           />
+//         </div>
+  
 //       );
-//   };
-
-//   commentsHandler = e => {
-//       console.log("Working!")
-//       this.setState({ comment: e.target.value }, () => console.log(this.state.comment));
-//   };
-
-//   handleCommentSubmit = e => {
-//       e.preventDefault();
-//       console.log(this.state.comment)
-//       const newComment = { text: this.state.comment, username: 'kelliraehanson'};
-//       const comments = this.state.comments.slice();
-//       comments.push(newComment);
-//       console.log(newComment)
-//       this.setState({ comments, comment: '' });
-//       setTimeout(() => {
-//           this.setComments();
-//       }, 500);
-//   };
-
-
-//   render() {
-
-//     return (
-
-//       <div>
-//         {this.state.comments.map((hi, yes) => 
-//         <Comment key={yes} comment={hi} />)}
-
-//         <CommentInput 
-//         comment={this.state.comment}
-//         submitComment={this.handleCommentSubmit}
-//         changeComment={this.commentHandler}
-//         />
-//       </div>
-
-//     );
+//     }
 //   }
-// }
-
-// CommentSection.propTypes = {
-//   comments: PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string, username: PropTypes.string, 
-        
-//     })
-//   )
-// };
-
-// export default CommentSection;
+  
+//   CommentSection.propTypes = {
+//     comments: PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string, username: PropTypes.string, 
+          
+//       })
+//     )
+//   };
+  
+//   export default CommentSection;
