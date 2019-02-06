@@ -1,21 +1,32 @@
 import React from 'react';
+import { Link, Route, withRouter} from 'react-router-dom';
 
 
 const Book = props => {
+    console.log(props.id);
   return (
-    <div className="Book">
+      <Link to={`/bookabout/${props.id}`}>
+    <div 
+    onClick={(event) => console.log(props.id, event)}
+    className="Book">
       <h3>TITLE: {props.title}</h3>
       <p>AUTHOR: {props.author}</p>
-      <button>Click for Description</button>
+      <p>DESCRIPTION: {props.short_description}</p>
+      <button>Click for More</button>
 
     </div>
+    </Link>
   );
 };
 
 Book.defaultProps = {
     title: '',
-    author: ''
+    author: '',
+    // id: ''
   };
 
 
 export default Book;
+
+
+// onClick={(props) => this.props.history.push(`/bookabout/${props.id}`)}

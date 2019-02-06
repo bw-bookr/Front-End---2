@@ -1,6 +1,8 @@
 import React from "react";
 import axios from 'axios';
 
+import { Route } from 'react-router-dom';
+
 import App from "../App";
 
 class Login extends React.Component {
@@ -10,7 +12,7 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
-    //   loggedIn: null
+      loggedIn: false
     };
   }
 
@@ -20,7 +22,7 @@ class Login extends React.Component {
 
   logInOther = event => {
       event.preventDefault();
-      const baseUrl = ("http://localhost:8000/api/user-access/login");
+      const baseUrl = ("https://bookr-app-backend.herokuapp.com/api/user-access/login");
       console.log("line23");
 
     // const user = this.state.username;
@@ -30,6 +32,8 @@ class Login extends React.Component {
       .then(res => { 
           console.log(res);
           localStorage.setItem("jwt", res.data.token)
+          this.setState({ loggedIn: true })
+          this.props.history.push('/books');
     })
     .catch(err => console.log(err));
     //   localStorage.setItem("user", user);
