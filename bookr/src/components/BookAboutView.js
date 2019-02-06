@@ -56,26 +56,34 @@ class BookAboutView extends Component {
         
         <CardTitle>
         <div className="bookTitle">
-        <h3>TITLE: {this.state.book[0].title}</h3>
+        <h3>{this.state.book[0].title}</h3>
           </div>
           </CardTitle>
 
         <CardSubtitle>
           <div className="authorName">
-          <p>AUTHOR: {this.state.book[0].author}</p>
+          <p>By: {this.state.book[0].author}</p>
           </div>
           </CardSubtitle>
 
-        
-        <CardText>
+          <CardText>
           <div className="aboutBook">
-          <p>DESCRIPTION: {this.state.book[0].full_description}</p>
+          <p>{this.state.book[0].full_description}</p>
+          </div>
+          </CardText>
+          <br></br>
+
+          <CardText>
+          <div className="aboutPub">
+          <p>Published by {this.state.book[0].publisher} in {this.state.book[0].year}</p>
           </div>
           </CardText>
 
         <div className="modal">
         <ModalThing />
         </div> 
+
+        {/* // <CommentSection /> */}
 
  </CardBody>
 </Card>
