@@ -24,24 +24,6 @@ import axios from 'axios';
       this.setState({ reviews })
     })
   }
-
-    // componentDidMount() {
-    //     if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
-    //     axios
-    //     .get('https://bookr-app-backend.herokuapp.com/api/book-collection/all_reviews')
-    //     .then(response => {
-    //       const id = this.props.match.params.id;
-    //       console.log(id);
-    //       const books = response.data;
-    //       console.log(books);
-    //       console.log(response.data);
-    //       const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
-    //       console.log(book)
-    
-    //       this.setState({ book }, () => {console.log(this.state);} )
-    //     })
-    //     .catch(err => console.log(err));
-    //   }
     
   
     componentDidMount() {

@@ -9,7 +9,7 @@ import ModalThing from './Modal';
 import { NavLink, Router, withRouter} from 'react-router-dom';
 
 import './Book.css';
-// import CommentSection from './CommentSection/CommentSection';
+import CommentSection from './CommentSection/CommentSection';
 
 class BookAboutView extends Component {
   constructor(props) {
@@ -96,9 +96,9 @@ class BookAboutView extends Component {
         <ModalThing />
         </div> 
 
-        {/* <CommentSection
+        <CommentSection
         id = {this.state.id}
-        /> */}
+        />
 
  </CardBody>
 </Card>
