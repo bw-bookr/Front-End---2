@@ -53,6 +53,8 @@ class Login extends React.Component {
       .then(res => { 
           console.log(res);
           localStorage.setItem("jwt", res.data.token)
+          localStorage.setItem("user_id", res.data.user_id)
+          localStorage.setItem("username", res.data.username)
           this.setState({ loggedIn: true })
           this.props.history.push('/books');
     })
@@ -117,9 +119,11 @@ class Login extends React.Component {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup>
+              <div className="loginButton">
               <Button color="primary" size="lg" onClick={this.logInOther}>
                 Submit{" "}
               </Button>
+              </div>
             </Form>
           </Col>
           <Col className="col-xl-8 col-lg-7 col-md-6 col-sm-12 cover-img" />

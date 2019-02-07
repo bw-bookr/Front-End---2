@@ -97,7 +97,7 @@ class BookAboutView extends Component {
         </div> 
 
         <CommentSection
-        id = {this.state.id}
+        id = {this.props.match.params.id}
         />
 
  </CardBody>

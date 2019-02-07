@@ -9,33 +9,34 @@ import axios from 'axios';
     constructor(props) {
       super(props);
       this.state = {
-        comments: props.comments,
+        comments: [],
+        rating: 0,
         comment: '',
+        users: []
       };
     }
 
     componentDidMount() {
+        console.log('this is props id', this.props.id);
     axios
     .get(`https://bookr-app-backend.herokuapp.com/api/book-review/book_review/${this.props.id}`)
     .then(response => {
       const reviews = response.data.reviews;
       console.log(reviews);
 
-      this.setState({ reviews })
+      this.setState({ comments: reviews })
     })
+
+axios 
+  .get('https://bookr-app-backend.herokuapp.com/api/user-access/users')
+  .then(response => {
+      const users = response.data.users;
+      console.log(users);
+
+      this.setState({ users })
+  })
   }
-    
-  
-    componentDidMount() {
-        const id = this.props.postId;
-        if (localStorage.getItem(id)) {
-            this.setState({
-                commments: JSON.parse(localStorage.getItem(this.props.postId))
-            });
-        } else {
-            this.setComments();
-        }
-    }
+
   
     componentWillUnmount() {
         this.setComments();
@@ -52,12 +53,19 @@ import axios from 'axios';
         console.log("Working!")
         this.setState({ comment: e.target.value }, () => console.log(this.state.comment));
     };
+
+    ratingHandler = e => {
+        console.log("Working!")
+        this.setState({ rating: e.target.value }, () => console.log(this.state.rating));
+    };
   
     handleCommentSubmit = e => {
         e.preventDefault();
         console.log(this.state.comment)
-        const newComment = { text: this.state.comment, username: ''};
-        const comments = this.state.comments.slice();
+        const userId = localStorage.getItem('user_id') 
+        const username = localStorage.getItem('username') 
+        const newComment = { review: this.state.comment, user_id: userId, rating: this.state.rating };
+        let comments = this.state.comments;
         comments.push(newComment);
         console.log(newComment)
         this.setState({ comments, comment: '' });
@@ -69,19 +77,21 @@ import axios from 'axios';
   
     render() {
         console.log(this.state.comment);
-        if (!this.state.comment[0]) return <h1>Loading...</h1>
+        if (this.state.comments[0] === '') return <h1>Loading...</h1>
 
   
       return (
   
         <div>
-          {this.state.comment.map((hi, yes) => 
+          {this.state.comments.map((hi, yes) => 
           <Comment key={yes} comment={hi} />)}
   
           <CommentInput 
           comment={this.state.comment}
           submitComment={this.handleCommentSubmit}
-          changeComment={this.commentHandler}
+          changeComment={this.commentsHandler}
+          changeRating={this.ratingHandler}
+          rating={this.state.rating}
           />
         </div>
   
