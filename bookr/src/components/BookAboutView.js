@@ -61,7 +61,7 @@ class BookAboutView extends Component {
     <Card>
 
       <div className="bookImage">
-      <CardImg top width="100%" src={this.state.book.cover_url} alt="Card image cap" />
+      <CardImg top width="100%" src={this.state.book[0].cover_url} alt="Card image cap" />
       </div>
 
       <CardBody>
@@ -101,9 +101,13 @@ class BookAboutView extends Component {
 
         </div> 
 
+        <div className="reviewsSection">
+        <CardText>
         <CommentSection
         id = {this.props.match.params.id}
         />
+        </CardText>
+        </div>
 
  </CardBody>
 </Card>

@@ -72,8 +72,8 @@
  }
  
 
- .Book {
-    display: inline-flex;
+ .container .Book {
+    /* display: inline-flex; */
     flex-direction: column;
     align-items: center;
     /* border: 2px solid black; */
@@ -93,9 +93,11 @@
     background-color: white;
  }
 
- .commentText {
-     font-size: 15px;
+ .reviewsSection {
+     background-color:  #F6F5F5;
  }
+
+ 
 
 
  /* .modal {

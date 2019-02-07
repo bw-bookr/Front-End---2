@@ -79,13 +79,13 @@ class Login extends React.Component {
           className="navbar navbar-expand-lg fixed-top navbar-light nav-lg"
         >
           <Container>
-            <NavbarBrand href="/">Bookr</NavbarBrand>
+            <NavbarBrand href="/"></NavbarBrand>
           </Container>
         </Navbar>
         <Row style={style}>
           <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
         
-            <h1>Login to Bookr</h1>
+            <h2>Login to Bookr</h2>
             <Form action="">
               <InputGroup className="input-group mb-3 input-group-lg">
                 <InputGroupAddon addonType="prepend">

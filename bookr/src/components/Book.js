@@ -40,6 +40,7 @@
 
 import React from 'react';
 import { Link, Route, withRouter} from 'react-router-dom';
+import './Book.css';
 
 
 const Book = props => {

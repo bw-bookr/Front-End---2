@@ -10,13 +10,13 @@ const Comment = props => {
         {/* <span className="user">{props.comment.user_id}</span>{''}
         <br></br> */}
 
-        <span className="userName">{props.comment.username}</span>{''}
+        <span className="userName">{props.comment.username} says:</span>{''}
         <br></br>
 
         <span className="comment">{props.comment.review}</span>
         <br></br>
 
-        <span className="rating">{props.comment.rating}</span>
+        <span className="rating">{props.comment.rating} stars</span>
       
     </div>
   );

@@ -75,3 +75,12 @@ button:hover {
   
 }
 
+.container {
+  border: solid 2px red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
