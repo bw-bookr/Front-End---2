@@ -76,11 +76,20 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    /* border: 2px solid black; */
+    width: 284px;
+    padding: 10px 10px 20px 10px;
+    /* border: 1px solid #BFBFBF; */
     border: 2px solid black;
-    border-radius: 20px;
+    background-color: white;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
+    /* border-radius: 20px; */
     padding-bottom: 20px;
     margin-bottom: 30px;
     width: 500px;
+    height: 500px;
+    padding: 20px;
  }
 
 

@@ -15,7 +15,9 @@ class BookAboutView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      book: [{title: null, author: null, description: null, image: null}]
+      book: [{title: null, author: null, description: null, image: null}],
+      review: [],
+      id: ''
 
     };
   }
@@ -33,10 +35,21 @@ class BookAboutView extends Component {
       const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
       console.log(book)
 
-      this.setState({ book }, () => {console.log(this.state);} )
+      this.setState({ book, id }, () => {console.log(this.state);} )
     })
     .catch(err => console.log(err));
+    const id = this.props.match.params.id;
+
+  //   axios
+  //   .get(`https://bookr-app-backend.herokuapp.com/api/book-review/book_review/${id}`)
+  //   .then(response => {
+  //     const reviews = response.data.reviews;
+  //     console.log(reviews);
+
+  //     this.setState({ reviews })
+  //   })
   }
+
 
   updateBooks(params) {
     this.setState({ books: params })
@@ -83,7 +96,9 @@ class BookAboutView extends Component {
         <ModalThing />
         </div> 
 
-        {/* // <CommentSection /> */}
+        {/* <CommentSection
+        id = {this.state.id}
+        /> */}
 
  </CardBody>
 </Card>
