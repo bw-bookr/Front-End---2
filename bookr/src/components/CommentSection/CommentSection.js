@@ -15,34 +15,45 @@ import axios from 'axios';
     }
 
     componentDidMount() {
-        if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
-        axios
-        .get('https://bookr-app-backend.herokuapp.com/api/book-collection/all_reviews')
-        .then(response => {
-          const id = this.props.match.params.id;
-          console.log(id);
-          const books = response.data;
-          console.log(books);
-          console.log(response.data);
-          const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
-          console.log(book)
+    axios
+    .get(`https://bookr-app-backend.herokuapp.com/api/book-review/book_review/${this.props.id}`)
+    .then(response => {
+      const reviews = response.data.reviews;
+      console.log(reviews);
+
+      this.setState({ reviews })
+    })
+  }
+
+    // componentDidMount() {
+    //     if (localStorage.getItem('jwt')) {this.setState({loggedIn: true})}
+    //     axios
+    //     .get('https://bookr-app-backend.herokuapp.com/api/book-collection/all_reviews')
+    //     .then(response => {
+    //       const id = this.props.match.params.id;
+    //       console.log(id);
+    //       const books = response.data;
+    //       console.log(books);
+    //       console.log(response.data);
+    //       const book = books.filter(bk => {console.log(bk.id); console.log(typeof id); return bk.id === Number(id)})
+    //       console.log(book)
     
-          this.setState({ book }, () => {console.log(this.state);} )
-        })
-        .catch(err => console.log(err));
-      }
+    //       this.setState({ book }, () => {console.log(this.state);} )
+    //     })
+    //     .catch(err => console.log(err));
+    //   }
     
   
-    // componentDidMount() {
-    //     const id = this.props.postId;
-    //     if (localStorage.getItem(id)) {
-    //         this.setState({
-    //             commments: JSON.parse(localStorage.getItem(this.props.postId))
-    //         });
-    //     } else {
-    //         this.setComments();
-    //     }
-    // }
+    componentDidMount() {
+        const id = this.props.postId;
+        if (localStorage.getItem(id)) {
+            this.setState({
+                commments: JSON.parse(localStorage.getItem(this.props.postId))
+            });
+        } else {
+            this.setComments();
+        }
+    }
   
     componentWillUnmount() {
         this.setComments();
@@ -75,11 +86,14 @@ import axios from 'axios';
   
   
     render() {
+        console.log(this.state.comment);
+        if (!this.state.comment[0]) return <h1>Loading...</h1>
+
   
       return (
   
         <div>
-          {this.state.comments.map((hi, yes) => 
+          {this.state.comment.map((hi, yes) => 
           <Comment key={yes} comment={hi} />)}
   
           <CommentInput 

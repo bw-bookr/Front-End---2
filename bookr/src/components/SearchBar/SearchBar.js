@@ -15,7 +15,7 @@ const SearchBars = props => {
         </a>
         </div>
 
-        <div className="search"><input type="text" placeholder="Search" onKeyPress={props.searchPosts}/></div>
+        {/* <div className="search"><input type="text" placeholder="Search" onKeyPress={props.searchPosts}/></div> */}
        
     
 

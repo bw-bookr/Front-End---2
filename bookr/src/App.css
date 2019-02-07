@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background: rgba(76, 175, 80, 0.3) */
 }
 
 .App-logo {
@@ -58,6 +59,14 @@ button {
   color: white;
   font-weight: bold;
   background-color: black;
+  box-shadow: 2px 2px 1px #aaaaaa;
+}
+
+button:hover {
+  background-color: white; 
+  color: black;
+  border: 1px solid black;
+
 }
 
 .navLink {
