@@ -23,3 +23,19 @@
     justify-content: center;
     align-items: center;
   }
+
+  .userName {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  .rating {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  

@@ -73,29 +73,48 @@
  
 
  .container .Book {
+     display: flex;
+     flex-direction: column;
     /* display: inline-flex; */
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     /* border: 2px solid black; */
-    width: 284px;
-    padding: 10px 10px 20px 10px;
+    /* padding: 10px 10px 20px 10px; */
     /* border: 1px solid #BFBFBF; */
     border: 2px solid black;
-    background-color: white;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    /* background-color: white;
+    box-shadow: 10px 10px 5px #aaaaaa; */
     /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
     /* border-radius: 20px; */
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-    width: 400px;
-    height: 500px;
-    padding: 20px;
-    background-color: white;
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px;
+    width: 300px;
+    height: 500px; */
+    /* padding: 20px; */
+    /* background-color: white; */
+    width: 40%;
+    margin-bottom: 10px;
+    
  }
 
  .reviewsSection {
+     border-top: 2px solid black;
      background-color:  #F6F5F5;
  }
+
+ .container {
+    border: solid 2px red;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end; */
+  
+  }
 
  
 
