@@ -24,7 +24,8 @@ class ModalThing extends React.Component {
    }
 
   render() {
-    const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
+    const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} 
+    onClick={this.toggle}>&times;</button>;
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}input</Button>
@@ -38,14 +39,12 @@ class ModalThing extends React.Component {
 
               <CommentInput
               comment={this.props.comment}
-              commentSubmit={this.comSubmit}
+              submitComment={this.handleCommentSubmit}
               changeComment={this.props.commentsHandler}
               changeRating={this.props.ratingHandler}
               rating={this.props.rating}
               />
             
-
-
 
           </ModalBody>
           <ModalFooter>

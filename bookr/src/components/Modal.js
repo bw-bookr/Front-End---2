@@ -34,7 +34,7 @@ deleteItem = e => {
     .delete(`https://bookr-app-backend.herokuapp.com/api/book-collection/delete_book/${this.props.id}`)
     .then(response => {
         console.log(response)
-        this.props.history.push('/');
+        this.props.history.push('/books');
     })
   };
 

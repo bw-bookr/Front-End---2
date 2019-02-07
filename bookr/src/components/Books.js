@@ -49,6 +49,7 @@ class Books extends Component {
                 short_description={book.short_description}
                 full_description={book.full_description}
                 key={book.id}
+                cover_url={book.cover_url}
               />
 
               {/* <BookAboutView

@@ -61,7 +61,7 @@ class BookAboutView extends Component {
     <Card>
 
       <div className="bookImage">
-      <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+      <CardImg top width="100%" src={this.state.book.cover_url} alt="Card image cap" />
       </div>
 
       <CardBody>
