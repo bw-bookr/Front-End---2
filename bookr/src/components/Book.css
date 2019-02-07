@@ -93,6 +93,10 @@
     background-color: white;
  }
 
+ .commentText {
+     font-size: 15px;
+ }
+
 
  /* .modal {
      background-color: grey;

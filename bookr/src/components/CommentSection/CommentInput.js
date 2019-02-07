@@ -2,6 +2,7 @@ import React from 'react';
 
 const CommentInput = props => {
 
+
   return (
 
     <form onSubmit={props.submitComment}>
@@ -15,7 +16,7 @@ const CommentInput = props => {
     type="text" defaultValue={props.rating} 
     placeholder="Add rating... " />
     </div>
-    <button onClick={props.submitComment}>click</button>
+    <button onClick={(e) => props.submitComment(e)}>Click</button>
     </form>
   );
 };

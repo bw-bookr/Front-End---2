@@ -93,7 +93,12 @@ class BookAboutView extends Component {
           </CardText>
 
         <div className="modal">
-        <ModalThing />
+
+        <ModalThing 
+        id={this.state.book[0].id}
+        history={this.props.history}
+        />
+
         </div> 
 
         <CommentSection

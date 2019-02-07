@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './CommentSection.css';
+import './Comment.css';
 
 const Comment = props => {
     console.log('this is from comment', props);

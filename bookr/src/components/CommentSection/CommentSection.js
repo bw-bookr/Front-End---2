@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
 
+import CommentModal from './CommentModal';
+
 import axios from 'axios';
 
   class CommentSection extends React.Component {
@@ -37,6 +39,8 @@ axios
   })
   }
 
+
+
   
     componentWillUnmount() {
         this.setComments();
@@ -68,11 +72,37 @@ axios
         let comments = this.state.comments;
         comments.push(newComment);
         console.log(newComment)
-        this.setState({ comments, comment: '' });
-        setTimeout(() => {
-            this.setComments();
-        }, 500);
+        // this.setState({ comments, comment: '' });
+        // setTimeout(() => {
+        //     this.setComments();
+        // }, 500);
+        
+        const review1 = {
+            review: this.state.comment,
+            rating: this.state.rating
+          }
+          const token = localStorage.getItem('jwt');
+          console.log(token);
+          console.log(review1);
+            const endpoint = `https://bookr-app-backend.herokuapp.com/api/book-review/add_review/${this.props.id}`;
+
+            const options = {
+            headers: {
+                Authorization: token
+            }
+        };
+
+        axios.post(endpoint, review1, options ).then(res => {
+            console.log("Comment Section ->", res.data);
+        }).catch(err => {
+            console.log("ERROR ->", err);
+        })
+        
     };
+
+   
+
+    
   
   
     render() {
@@ -85,7 +115,16 @@ axios
         <div>
           {this.state.comments.map((hi, yes) => 
           <Comment key={yes} comment={hi} />)}
-  
+
+          {/* <CommentModal 
+          comment={this.state.comment}
+          submitComment={this.handleCommentSubmit}
+          changeComment={this.commentsHandler}
+          changeRating={this.ratingHandler}
+          rating={this.state.rating}
+          /> */}
+
+
           <CommentInput 
           comment={this.state.comment}
           submitComment={this.handleCommentSubmit}
