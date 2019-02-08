@@ -85,7 +85,8 @@ class Login extends React.Component {
         <Row style={style}>
           <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
         
-            <h2>Login to Bookr</h2>
+        <div className="login">
+            {/* <h2>Login to Bookr</h2> */}
             <Form action="">
               <InputGroup className="input-group mb-3 input-group-lg">
                 <InputGroupAddon addonType="prepend">
@@ -125,6 +126,7 @@ class Login extends React.Component {
               </Button>
               </div>
             </Form>
+            </div>
           </Col>
           <Col className="col-xl-8 col-lg-7 col-md-6 col-sm-12 cover-img" />
         </Row>

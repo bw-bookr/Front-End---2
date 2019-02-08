@@ -38,4 +38,6 @@
     font-family: Palatino;
   }
 
-  
+  input {
+    width: 400px;
+}

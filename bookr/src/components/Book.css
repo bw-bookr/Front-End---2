@@ -1,10 +1,10 @@
 .bookImage {
-    border: 3px solid black;
     width: 500px;
     height: auto;
     display: inline-flex;
     flex-direction: column;
     margin: 20px;
+    box-shadow: 10px 10px 5px black; 
 
 }
 
@@ -47,7 +47,7 @@
  }
 
  h3 {
-     color: white;
+     color: black;
      font-size: 40px;
      display: inline-flex;
      flex-direction: column;
@@ -59,10 +59,8 @@
      
  }
 
- 
-
  p {
-     color: white;
+     color: black;
      display: inline-flex;
      flex-direction: column;
      font-style: normal;
@@ -95,12 +93,12 @@
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    box-shadow: 10px 10px 5px #aaaaaa; 
+    box-shadow: 10px 10px 5px black; 
     border-radius: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: black;
-    color: white;
+    background-color: #F6F5F5;
+    color: black;
   }
 
  .reviewsSection {

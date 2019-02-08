@@ -4,7 +4,15 @@
     background-position: center; 
   }
 
-  .Button {
-      background-color: black;
-      color: white;
+
+  .login {
+      background-color: #F6F5F5;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+  }
+
+  input {
+      border: 1px solid black;
   }

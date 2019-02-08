@@ -69,9 +69,13 @@ class BookAboutView extends Component {
         
         <CardTitle>
         <div className="bookTitle">
-        <h3>{this.state.book[0].title}</h3>
+        <h3>{this.state.book[0].title} 
+        {console.log('line 73')};
+        </h3>
+        
           </div>
           </CardTitle>
+        
 
         <CardSubtitle>
           <div className="authorName">
@@ -100,6 +104,8 @@ class BookAboutView extends Component {
         />
 
         </div> 
+
+        <br></br>
 
         <div className="reviewsSection">
         <CardText>
