@@ -53,6 +53,8 @@ class Login extends React.Component {
       .then(res => { 
           console.log(res);
           localStorage.setItem("jwt", res.data.token)
+          localStorage.setItem("user_id", res.data.user_id)
+          localStorage.setItem("username", res.data.username)
           this.setState({ loggedIn: true })
           this.props.history.push('/books');
     })
@@ -77,13 +79,14 @@ class Login extends React.Component {
           className="navbar navbar-expand-lg fixed-top navbar-light nav-lg"
         >
           <Container>
-            <NavbarBrand href="/">Bookr</NavbarBrand>
+            <NavbarBrand href="/"></NavbarBrand>
           </Container>
         </Navbar>
         <Row style={style}>
           <Col className="col-xl-4 col-lg-5 col-md-6 col-sm-12 align-self-center cover-text text-center px-5 animated fadeIn">
         
-            <h1>Login to Bookr</h1>
+        <div className="login">
+            {/* <h2>Login to Bookr</h2> */}
             <Form action="">
               <InputGroup className="input-group mb-3 input-group-lg">
                 <InputGroupAddon addonType="prepend">
@@ -117,10 +120,13 @@ class Login extends React.Component {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup>
+              <div className="loginButton">
               <Button color="primary" size="lg" onClick={this.logInOther}>
                 Submit{" "}
               </Button>
+              </div>
             </Form>
+            </div>
           </Col>
           <Col className="col-xl-8 col-lg-7 col-md-6 col-sm-12 cover-img" />
         </Row>

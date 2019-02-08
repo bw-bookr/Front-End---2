@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+import axios from 'axios';
+
 class ModalThing extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +24,20 @@ class ModalThing extends React.Component {
 //     this.props.deleteItem(index)
 // }
 
+deleteItem = e => {
+    e.preventDefault();
+    // let books = this.state.books.slice();
+    // books = books.filter(book => !book.delete);
+    // this.setState({ books });
+    console.log('this.props.id');
+    axios
+    .delete(`https://bookr-app-backend.herokuapp.com/api/book-collection/delete_book/${this.props.id}`)
+    .then(response => {
+        console.log(response)
+        this.props.history.push('/books');
+    })
+  };
+
   render() {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
@@ -39,10 +55,15 @@ class ModalThing extends React.Component {
               <div className="modalButtons">
             {/* <Button color="primary" onClick={e => this.deleteItem(e, index)} key={index}>
             Delete Book</Button>{' '} */}
+
+            {/* <Button 
+            onClick={props.deleteItem}>Delete</Button> */}
             
-            <Button  
-            // onClick={() => this.props.history.delete(`/bookabout/${book.id}`)}
-            color="primary" onClick={this.toggle}>Delete Book</Button>
+
+            <Button 
+            onClick={(e) => this.deleteItem(e)}
+            color="primary">Delete Book</Button>
+
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </div>
 

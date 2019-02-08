@@ -9,7 +9,7 @@ import ModalThing from './Modal';
 import { NavLink, Router, withRouter} from 'react-router-dom';
 
 import './Book.css';
-// import CommentSection from './CommentSection/CommentSection';
+import CommentSection from './CommentSection/CommentSection';
 
 class BookAboutView extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class BookAboutView extends Component {
     <Card>
 
       <div className="bookImage">
-      <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+      <CardImg top width="100%" src={this.state.book[0].cover_url} alt="Card image cap" />
       </div>
 
       <CardBody>
@@ -69,9 +69,13 @@ class BookAboutView extends Component {
         
         <CardTitle>
         <div className="bookTitle">
-        <h3>{this.state.book[0].title}</h3>
+        <h3>{this.state.book[0].title} 
+        {console.log('line 73')}
+        </h3>
+        
           </div>
           </CardTitle>
+        
 
         <CardSubtitle>
           <div className="authorName">
@@ -93,12 +97,23 @@ class BookAboutView extends Component {
           </CardText>
 
         <div className="modal">
-        <ModalThing />
+
+        <ModalThing 
+        id={this.state.book[0].id}
+        history={this.props.history}
+        />
+
         </div> 
 
-        {/* <CommentSection
-        id = {this.state.id}
-        /> */}
+        <br></br>
+
+        <div className="reviewsSection">
+        <CardText>
+        <CommentSection
+        id = {this.props.match.params.id}
+        />
+        </CardText>
+        </div>
 
  </CardBody>
 </Card>

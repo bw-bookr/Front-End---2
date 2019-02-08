@@ -1,0 +1,43 @@
+.commentText {
+    font-size: 15px;
+  }
+
+  .user {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  .comment {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  .commentText {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userName {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  .rating {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: lighter;
+    font-family: Palatino;
+  }
+
+  input {
+    width: 400px;
+}

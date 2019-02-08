@@ -71,9 +71,13 @@ class App extends Component {
 
       <Route exact path='/' component={Login}/>
 
+      <div className="container">
+
       <Route path='/books' component={props => (
         <Books 
       books={this.state.books} /> )} />
+
+      </div>
 
       {/* <Route 
       exact path='/books'
