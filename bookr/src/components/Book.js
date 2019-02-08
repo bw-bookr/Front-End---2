@@ -8,16 +8,14 @@ const Book = props => {
     console.log(props.id);
   return (
     //   <div clasName="container">
-      <NavLink to={`/bookabout/${props.id}`}>
-    <div 
-    onClick={(event) => console.log(props.id, event)}
-    className="Book">
+      <NavLink className="Book" to={`/bookabout/${props.id}`}>
+    
       <h3>{props.title}</h3>
       <p>By: {props.author}</p>
       <p>{props.short_description}</p>
       <button>Click for More</button>
 
-    </div>
+    
     </NavLink>
     // </div>
     
