@@ -70,7 +70,7 @@ class BookAboutView extends Component {
         <CardTitle>
         <div className="bookTitle">
         <h3>{this.state.book[0].title} 
-        {console.log('line 73')};
+        {console.log('line 73')}
         </h3>
         
           </div>
